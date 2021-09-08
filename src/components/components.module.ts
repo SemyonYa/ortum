@@ -19,12 +19,14 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormItemComponent } from './form-item/form-item.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
 @NgModule({
   declarations: [
     BreadcrumbsComponent,
+    CarouselComponent,
     CollapsibleComponent,
     DropDownComponent,
     FormItemComponent,
@@ -56,6 +58,7 @@ import { FormItemComponent } from './form-item/form-item.component';
     NgxMaskModule,
 
     BreadcrumbsComponent,
+    CarouselComponent,
     CollapsibleComponent,
     DropDownComponent,
     FormItemComponent,

@@ -1,0 +1,10 @@
+<div class="wrap">
+    <div *ngFor="let item of images" class="item {{item.position}}">
+        <img src="/assets/fake/{{item.name}}" alt="{{item.name}}">
+    </div>
+    <div class="arrow left" (click)="prev()"><</div>
+    <div class="arrow right" (click)="next()">></div>
+    <div class="dots">
+        <div *ngFor="let item of images" class="dots-item"></div>
+    </div>
+</div>
