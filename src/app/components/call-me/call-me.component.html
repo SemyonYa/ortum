@@ -1,0 +1,34 @@
+<div *ngIf="!minified" class="wrap" @callMeAnimation>
+    <h3>
+        <img src="/assets/icons/pencil-sharp.svg" alt="CALL ME">
+        <span *ngIf="expanded">Перезвони мне</span>
+        <button *ngIf="expanded" type="button" (click)="toggle()" class="icon">
+            <img src="/assets/icons/close.svg" alt="">
+        </button>
+    </h3>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="col">
+        <i-form-item control="name" [form]="form">
+            <label>Имя</label>
+            <input formControlName="name" type="text">
+        </i-form-item>
+        <i-form-item control="email" [form]="form">
+            <label>E-mail</label>
+            <input formControlName="email" type="text">
+        </i-form-item>
+        <i-form-item control="phone" [form]="form">
+            <label>Телефон</label>
+            <input formControlName="phone" matInput prefix="+" mask="0 (000) 000-00-00" [showMaskTyped]="true"
+                type="text">
+        </i-form-item>
+        <i-form-item control="text" [form]="form">
+            <label>Сообщение</label>
+            <textarea formControlName="text" rows="4"></textarea>
+        </i-form-item>
+
+        <button *ngIf="expanded" type="submit" [disabled]="form.invalid" class="success">Отправить</button>
+    </form>
+</div>
+
+<div *ngIf="minified" class="minified" (click)="toggle()" @callMeAnimation>
+    <img src="/assets/icons/pencil-sharp.svg" alt="CALL ME">
+</div>

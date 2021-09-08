@@ -1,0 +1,15 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    border-top: solid 1px var(--color-secondary);
+    padding: 24px;
+    
+    .container {
+        width: 100%;
+        max-width: 800px;
+        padding: 24px;
+        border: solid 1px var(--color-secondary);
+        border-radius: 12px;
+
+    }
+}

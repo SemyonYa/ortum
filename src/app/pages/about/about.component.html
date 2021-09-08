@@ -1,0 +1,13 @@
+<div class="wrap col" @pageAnimation>
+    <h1>About</h1>
+    <div class="links">
+        <a [routerLink]="[ '/about' ]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">О компании</a>
+        <a [routerLink]="[ '/about/license' ]" routerLinkActive="active">Лицензия</a>
+        <a [routerLink]="[ '/about/personal' ]" routerLinkActive="active">Персонал</a>
+        <a [routerLink]="[ '/about/positions' ]" routerLinkActive="active">Вакансии</a>
+        <a [routerLink]="[ '/about/galery' ]" routerLinkActive="active">Фото</a>
+    </div>
+    <div class="page-child">
+        <router-outlet></router-outlet>
+    </div>
+</div>

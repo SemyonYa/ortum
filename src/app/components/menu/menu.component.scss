@@ -1,0 +1,21 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 26px;
+        padding: 40px 20px;
+        color: var(--color-text);
+
+        span {
+            flex: 1 1 0;
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}

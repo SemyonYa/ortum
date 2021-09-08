@@ -1,0 +1,11 @@
+<div class="wrap col" @pageAnimation>
+    <h1>Услуги</h1>
+    <div class="links">
+        <a [routerLink]="[ '/services' ]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            Список услуг
+        </a>
+        <a [routerLink]="[ '/services/programs' ]" routerLinkActive="active">Программы</a>
+        <a [routerLink]="[ '/services/price' ]" routerLinkActive="active">Прайс-лист</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>

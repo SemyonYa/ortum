@@ -1,0 +1,18 @@
+<div class="wrap">
+
+  <i-header [menuVisible]="menuVisible" (onToggleMenu)="toggleMenu()"></i-header>
+
+  <aside *ngIf="asideVisible" (click)="backClick($event)" @menuBackAnimation>
+    <i-menu *ngIf="menuVisible" [menu]="menu" (onToggleMenuItem)="toggleMenuItem($event)" (onHide)="hideMenu()"
+      @menuAnimation></i-menu>
+  </aside>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <i-footer></i-footer>
+
+  <i-call-me [minified]="callMeMinified" (onToggle)="toggleCallMe()"></i-call-me>
+
+</div>

@@ -1,0 +1,7 @@
+<div class="wrap">
+    <div class="title">
+        <span>MENU</span>
+        <img src="/assets/icons/close.svg" alt="CLOSE" (click)="hide()">
+    </div>
+    <i-menu-item *ngFor="let menuItem of menu" [menuItem]="menuItem" (onToggle)="toggleItem($event)"></i-menu-item>
+</div>

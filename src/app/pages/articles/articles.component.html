@@ -1,0 +1,17 @@
+<div class="col">
+
+    <!-- <i-search-input (onChange)="search($event)"></i-search-input> -->
+
+    <div *ngIf="ctors" class="list" @pageAnimation>
+
+        <i-articles-brief *ngFor="let ctor of ctors" [ctor]="ctor" [routerLink]="[ '/articles/' + ctor.id ]" class="article"> </i-articles-brief>
+
+        <div *ngIf="ctors.length === 0" class="empty-list"> Empty list </div>
+
+    </div>
+
+    <div class="center">
+        <i-in-progress *ngIf="!ctors" size="36px" margin="48px"></i-in-progress>
+    </div>
+
+</div>
