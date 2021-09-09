@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: column;
 
+    background-image: url('/assets/icons/vertebra.svg');
+    background-repeat: no-repeat;
+    background-size: auto 200%;
+    background-position-x: right;
+    background-position-y: 30%;
+    background-attachment: fixed;
+    transition: .01s ease-in-out;
+
     i-header {
         display: block;
         position: fixed;
@@ -30,12 +38,8 @@
 
     main {
         margin-top: 80px;
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 24px;
-    }
-
-    i-footer {
-        background-color: white;
     }
 
     i-call-me {

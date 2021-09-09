@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ortum2"
+    }
+  },
+  "defaultProject": "ortum2",
+  "cli": {
+    "analytics": "47e33370-f779-40c6-8195-01bcf3483568"
+  }
 }

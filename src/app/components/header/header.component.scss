@@ -6,8 +6,9 @@
 
     .logo {
         flex: 0 1 80px;
+        margin-left: 24px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         text-transform: uppercase;
     }

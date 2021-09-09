@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { menuBackAnimation } from 'src/animations/menu-back.animation';
 import { menuAnimation } from 'src/animations/menu.animation';
@@ -10,14 +10,22 @@ import { MenuItem } from 'src/components/menu-item/menu-item.component';
   styleUrls: ['./app.component.scss'],
   animations: [menuAnimation, menuBackAnimation]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   title = 'ortum';
   menuVisible: boolean = false;
   asideVisible: boolean = false;
   callMeMinified: boolean = true;
 
-  constructor(private router: Router) {
+  scrollTimeoutOn: boolean;
+
+  @ViewChild('background') backgroundElem: ElementRef<HTMLDivElement>;
+
+  constructor(
+    private router: Router,
+    private renderer: Renderer2
+  ) {
+    // ROUTER SUBSCRIPTION
     this.router.events
       .subscribe(
         e => {
@@ -27,6 +35,25 @@ export class AppComponent {
           }
         }
       );
+  }
+
+  ngAfterViewInit() {
+    // SCROLL SUBSCRIPTION
+    window.addEventListener('scroll', () => {
+      if (!this.scrollTimeoutOn) {
+        this.scrollTimeoutOn = true;
+        setTimeout(() => {
+          console.log(window.scrollY);
+          console.log(this.backgroundElem);
+          this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-y', `calc(30% - ${window.scrollY / 10}px)`)
+          this.scrollTimeoutOn = false;
+        }, 30);
+      }
+    });
+  }
+
+  private moveVertebra() {
+
   }
 
   private menu: MenuItem[] = [
@@ -52,7 +79,7 @@ export class AppComponent {
   ];
 
   showMenu() {
-    document.querySelector('body').style.overflowY = 'hidden'
+    document.querySelector('body').style.overflowY = 'hidden';
     this.asideVisible = true;
     setTimeout(() => {
       this.menuVisible = true;

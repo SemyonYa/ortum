@@ -1,0 +1,9 @@
+.position {
+    border-radius: 12px;
+    border: solid 1px var(--color-secondary);
+    padding: 12px;
+
+    .head {
+        cursor: pointer;
+    }
+}

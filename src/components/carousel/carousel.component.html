@@ -2,9 +2,14 @@
     <div *ngFor="let item of images" class="item {{item.position}}">
         <img src="/assets/fake/{{item.name}}" alt="{{item.name}}">
     </div>
-    <div class="arrow left" (click)="prev()"><</div>
-    <div class="arrow right" (click)="next()">></div>
+    <div class="cover"></div>
+    <div class="arrow left" (click)="prev()">
+        <img src="/assets/icons/chevron-forward.svg" alt="PREVIOUS">
+    </div>
+    <div class="arrow right" (click)="next()">
+        <img src="/assets/icons/chevron-forward.svg" alt="NEXT">
+    </div>
     <div class="dots">
-        <div *ngFor="let item of images" class="dots-item"></div>
+        <div *ngFor="let item of images" [ngClass]="{'dots-item': true, 'active': item.id == activeId}"></div>
     </div>
 </div>

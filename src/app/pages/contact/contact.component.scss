@@ -1,0 +1,13 @@
+.wrap {
+    height: 50vh;
+    padding: 5vh 5wv;
+
+    .contacts {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 12px;
+        padding: 24px;
+        border: solid 1px var(--color-secondary);
+        box-shadow: 0 0 24px 0 rgba(0, 0, 0, .06);
+    }
+}

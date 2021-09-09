@@ -20,6 +20,8 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormItemComponent } from './form-item/form-item.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { GaleryComponent } from './galery/galery.component';
+import { GaleryViewerComponent } from './galery/galery-viewer/galery-viewer.component';
 
 
 
@@ -30,6 +32,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     CollapsibleComponent,
     DropDownComponent,
     FormItemComponent,
+    GaleryComponent,
     GridComponent,
     GridRowComponent,
     InProgressComponent,
@@ -37,6 +40,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     ModalComponent,
     SearchInputComponent,
     ToggleComponent,
+    GaleryViewerComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports: [
     BrowserModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
@@ -62,6 +66,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     CollapsibleComponent,
     DropDownComponent,
     FormItemComponent,
+    GaleryComponent,
     GridComponent,
     GridRowComponent,
     InProgressComponent,

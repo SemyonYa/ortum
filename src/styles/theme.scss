@@ -3,6 +3,20 @@ body {
   background-color: var(--color-bg);
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
 
 aside {
@@ -25,6 +39,24 @@ a {
 
 a:hover {
   color: var(--color-secondary);
+}
+
+.links {
+  display: flex;
+  gap: 18px;
+
+}
+
+.links a {
+  color: var(--color-secondary);
+  border-bottom: dotted 1px currentColor;
+  transition: .3s;
+}
+
+.links a.active {
+  color: var(--color-primary);
+  cursor: auto;
+  border-bottom-color: transparent;
 }
 
 h1,
@@ -100,26 +132,19 @@ button img {
 /*
   INPUTS
 */
-ng-valid {
-}
+ng-valid {}
 
-ng-invalid {
-}
+ng-invalid {}
 
-ng-pending {
-}
+ng-pending {}
 
-ng-pristine {
-}
+ng-pristine {}
 
-ng-dirty {
-}
+ng-dirty {}
 
-ng-untouched {
-}
+ng-untouched {}
 
-ng-touched {
-}
+ng-touched {}
 
 input,
 textarea {
@@ -296,3 +321,7 @@ label {
   color: var(--color-text);
   font-weight: 600;
 }
+
+/*
+  GALERY
+*/

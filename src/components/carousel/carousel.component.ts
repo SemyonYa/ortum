@@ -26,7 +26,6 @@ export class CarouselComponent implements OnInit {
       const prev2Index: number = prevIndex == 0 ? this.images.length - 1 : prevIndex - 1;
       const nextIndex: number = activeIndex == this.images.length - 1 ? 0 : activeIndex + 1;
       const next2Index: number = nextIndex == this.images.length - 1 ? 0 : nextIndex + 1;
-      console.log(activeIndex, prevIndex, prev2Index, nextIndex, next2Index);
 
       this.images.forEach((image, index) => {
         switch (index) {
@@ -45,7 +44,7 @@ export class CarouselComponent implements OnInit {
           case next2Index:
             image.position = 'next2';
             break;
-        
+
           default:
             image.position = 'none';
             break;
@@ -59,7 +58,7 @@ export class CarouselComponent implements OnInit {
     const activeId = activeIndex == 0 ? this.images[this.images.length - 1].id : this.images[activeIndex - 1].id;
     this.setActivePosition(activeId)
   }
-  
+
   next() {
     const activeIndex: number = this.images.findIndex(i => i.id == this.activeId);
     const activeId = activeIndex == this.images.length - 1 ? this.images[0].id : this.images[activeIndex + 1].id;

@@ -1,0 +1,9 @@
+<div class="wrap">
+    <div class="thumbs">
+        <div *ngFor="let image of images" (click)="showViewer(image)" class="thumbs-item"
+            style="background-image: url(/assets/fake/{{image.name}});"></div>
+    </div>
+</div>
+
+<i-galery-viewer *ngIf="activeImage" [image]="activeImage" [thumbs]="images" (onSelectImage)="showViewer($event)"
+    (onClose)="hideViewer()"></i-galery-viewer>
