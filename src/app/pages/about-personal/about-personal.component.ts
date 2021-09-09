@@ -8,10 +8,11 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class AboutPersonalComponent implements OnInit {
-
+  persons: number[];
   constructor() { }
 
   ngOnInit(): void {
+    this.persons = [1, 2, 3, 4, 5];
   }
 
 }

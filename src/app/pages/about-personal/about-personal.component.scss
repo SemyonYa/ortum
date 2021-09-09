@@ -1,0 +1,22 @@
+.wrap {
+    flex-wrap: wrap;
+    .person {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        border: solid 1px var(--color-secondary);
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+    
+        img.photo {
+            height: 400px;
+            object-fit: cover;
+        }
+    
+        .text {
+            padding: 12px;
+            text-align: center;
+        }
+    }
+}

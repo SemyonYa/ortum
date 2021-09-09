@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap i-menu-item">
   <div class="item">
     <div [ngClass]="{'icon': true, 'pointer': menuItem.children?.length > 0}">
       <img *ngIf="menuItem.children?.length > 0" (click)="toggle()"
@@ -14,7 +14,4 @@
       <i-menu-item *ngFor="let item of menuItem.children" [menuItem]="item"></i-menu-item>
     </div>
   </i-collapsible>
-  <!-- <div *ngIf="menuItem.children?.length > 0 && menuItem.expanded" class="children">
-    <i-menu-item *ngFor="let item of menuItem.children" [menuItem]="item"></i-menu-item>
-  </div> -->
 </div>

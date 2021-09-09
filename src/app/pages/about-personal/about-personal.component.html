@@ -1,3 +1,9 @@
-<div class="wrap" @titleAnimation>
-    <p>about-personal works!</p>
+<div class="wrap row" @titleAnimation>
+    <div *ngFor="let person of persons" class="person">
+        <img src="/assets/fake/category{{person}}.jpg" alt="PHOTO" class="photo">
+        <div class="text">
+            <p><strong>Lorem, ipsum dolor.</strong></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </div>
 </div>

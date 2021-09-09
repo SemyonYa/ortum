@@ -1,6 +1,9 @@
 .wrap {
-    height: 50vh;
-    padding: 5vh 5wv;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 50vh;
+    padding: 5vh 5vw;
 
     .contacts {
         width: 100%;
@@ -8,6 +11,29 @@
         border-radius: 12px;
         padding: 24px;
         border: solid 1px var(--color-secondary);
-        box-shadow: 0 0 24px 0 rgba(0, 0, 0, .06);
+        box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06);
+
+        p {
+            text-align: center;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+
+            &-item {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border: solid 1px var(--color-secondary);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--color-secondary);
+                cursor: pointer;
+            }
+        }
     }
 }

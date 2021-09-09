@@ -1,11 +1,10 @@
 <div class="wrap col" @titleAnimation>
     <div *ngFor="let position of positions" class="position">
         <div class="head" (click)="selectPosition(position)">
-            <h5>Position {{position}}</h5>
+            Position {{position}}
         </div>
         <i-collapsible [expanded]="position == activePosition">
             <div class="description">
-                <hr>
                 <p>
                     <strong>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae est veritatis fugit aut

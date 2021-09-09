@@ -1,3 +1,6 @@
-<div class="wrap" @titleAnimation>
-    <p>services-list works!</p>
+<div class="wrap col" @titleAnimation>
+    <div *ngFor="let service of services" class="service">
+        <img src="/assets/fake/category{{service % 7 + 1}}.jpg" alt="SERVICE">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
 </div>

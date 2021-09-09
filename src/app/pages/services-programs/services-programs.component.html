@@ -1,3 +1,26 @@
 <div class="wrap" @titleAnimation>
-    <p>services-programs works!</p>
+    <div class="wrap col" @titleAnimation>
+        <div *ngFor="let program of programs" class="program">
+            <div class="head" (click)="selectProgram(program)">
+                program {{program}}
+            </div>
+            <i-collapsible [expanded]="program == activeProgram">
+                <div class="description">
+                    <!-- <hr> -->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius fugit eos, eaque ad porro
+                        excepturi. At deserunt dolorum expedita, praesentium, aperiam consectetur ipsum id culpa
+                        exercitationem quis iure saepe ad?
+                    </p>
+                    <!-- <hr> -->
+                    <ul>
+                        <li *ngFor="let service of [1,2,3,4,5]">
+                            Service {{service}} of program {{program}}
+                        </li>
+                    </ul>
+
+                </div>
+            </i-collapsible>
+        </div>
+    </div>
 </div>

@@ -6,7 +6,7 @@ import { MenuItem } from 'src/components/menu-item/menu-item.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html', 
   styleUrls: ['./app.component.scss'],
   animations: [menuAnimation, menuBackAnimation]
 })
@@ -64,7 +64,7 @@ export class AppComponent implements AfterViewInit {
         { id: 22, title: 'Лицензия', route: '/about/license' } as MenuItem,
         { id: 23, title: 'Персонал', route: '/about/personal' } as MenuItem,
         { id: 24, title: 'Вакансии', route: '/about/positions' } as MenuItem,
-        { id: 25, title: 'Фото??', route: '/about/galery' } as MenuItem,
+        { id: 25, title: 'Фото', route: '/about/galery' } as MenuItem,
       ]
     } as MenuItem,
     {

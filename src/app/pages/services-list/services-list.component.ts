@@ -8,10 +8,11 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class ServicesListComponent implements OnInit {
-
+  services: number[];
   constructor() { }
 
   ngOnInit(): void {
+    this.services = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   }
 
 }

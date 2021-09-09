@@ -1,9 +1,19 @@
-<div class="wrap center" @pageAnimation>
+<div class="wrap" @pageAnimation>
     <div class="contacts col center">
         <h2>Контакты</h2>
+        <hr>
+        <p>Адрес: <strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</strong></p>
         <p>Телефон: <strong>+7 (999) 999-99-99</strong></p>
         <p>Телефон: <strong>+7 (999) 999-99-99</strong></p>
+        <hr>
+        <p>Адрес: <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ducimus architecto
+                perspiciatis. Cumque provident totam quidem.</strong></p>
         <p>Телефон: <strong>+7 (999) 999-99-99</strong></p>
         <p>Телефон: <strong>+7 (999) 999-99-99</strong></p>
+        <hr>
+        <p><strong>Social</strong></p>
+        <div class="social">
+            <div *ngFor="let item of [1,2,3,4]" class="social-item">{{item}}</div>
+        </div>
     </div>
 </div>
