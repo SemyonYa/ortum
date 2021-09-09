@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { callMeAnimation } from 'src/animations/call-me.animation';
@@ -18,7 +19,9 @@ export class CallMeComponent implements OnInit {
   form: FormGroup;
   expanded: boolean = false;
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.generateForm();
@@ -39,7 +42,21 @@ export class CallMeComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
+    let html: string = '<strong>Перезвонить</strong>\n';
+    for (let key in this.form.value) {
+      html += `${this.form.value[key]}\n`;
+    }
+    const msg = encodeURI(html);
+    this.http.post(`https://api.telegram.org/bot${this.telegramToken}/sendMessage?chat_id=${this.telegramChatId}&parse_mode=html&text=${msg}`, {})
+      // Handle response/error
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 }
 
