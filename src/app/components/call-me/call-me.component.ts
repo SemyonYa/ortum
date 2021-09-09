@@ -48,7 +48,7 @@ export class CallMeComponent implements OnInit {
     }
     const msg = encodeURI(html);
     this.http.post(`https://api.telegram.org/bot${this.telegramToken}/sendMessage?chat_id=${this.telegramChatId}&parse_mode=html&text=${msg}`, {})
-      // Handle response/error
+      // TODO: Handle response/error
       .subscribe(
         res => {
           console.log(res);
