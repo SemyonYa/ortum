@@ -4,7 +4,7 @@ export const menuAnimation =
     trigger('menuAnimation', [
         transition(':enter', [
             style({
-                transform: 'translateX(-50vw)',
+                transform: 'translateX(-100%)',
                 // opacity: 0
             }),
             animate('.3s ease-in-out',
@@ -20,7 +20,7 @@ export const menuAnimation =
             }),
             animate('.3s ease-in-out',
                 style({
-                    transform: 'translateX(-50vw)',
+                    transform: 'translateX(-100%)',
                     // opacity: 0
                 }))
         ])

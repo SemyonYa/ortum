@@ -11,7 +11,7 @@ export class ServicesProgramsComponent implements OnInit {
   programs: number[];
   activeProgram: number;
 
-  constructor() { }
+  constructor() { } 
 
   ngOnInit(): void {
     this.programs = [1, 2, 3, 4]

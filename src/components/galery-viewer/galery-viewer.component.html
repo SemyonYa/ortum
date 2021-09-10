@@ -1,0 +1,12 @@
+<div id="galery-viewer-background" class="background" (click)="backgroundClick($event)">
+    <div class="close">
+        <img src="/assets/icons/close.svg" (click)="close()" alt="CLOSE">
+    </div>
+    <img [src]="'/assets/fake/' + image.name" (click)="next()" [alt]="image.name">
+    <!-- <div class="thumbs-wrap"> -->
+        <div class="thumbs">
+            <img *ngFor="let thumb of thumbs" [src]="'/assets/fake/' + thumb.name" [alt]="thumb.name"
+                [ngClass]="{'thumbs-item': true, 'selected': thumb.id == image.id}" (click)="selectImage(thumb)">
+        </div>
+    <!-- </div> -->
+</div>

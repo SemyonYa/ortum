@@ -1,9 +1,6 @@
 <div class="wrap col" @titleAnimation>
-    <a href="/assets/fake/category1.jpg" download="Ortum. Прайс-лист" class="download">
-        <span>Скачать прайс (PDF)</span>
-        <img src="/assets/icons/download-outline.svg" alt="DOWMLOAD">
-    </a>
-    
+    <ng-container [ngTemplateOutlet]="download"></ng-container>
+
     <table>
         <thead>
             <td></td>
@@ -26,8 +23,13 @@
         </tbody>
     </table>
 
+    <ng-container [ngTemplateOutlet]="download"></ng-container>
+</div>
+
+<!-- DOWNLOAD -->
+<ng-template #download>
     <a href="/assets/fake/category1.jpg" download="Ortum. Прайс-лист" class="download">
         <span>Скачать прайс (PDF)</span>
         <img src="/assets/icons/download-outline.svg" alt="DOWMLOAD">
     </a>
-</div>
+</ng-template>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Image } from 'src/models/Image';
 
 @Component({
   selector: 'i-about-license',
@@ -8,10 +9,21 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class AboutLicenseComponent implements OnInit {
-
+  licenseImage: Image;
+  activeImage: Image;
   constructor() { }
 
   ngOnInit(): void {
+    this.licenseImage = new Image(0, 'category4.jpg');
   }
 
+  showViewer(image: Image) {
+    console.log('show');
+    
+    this.activeImage = this.licenseImage;
+  }
+
+  hideViewer() {
+    this.activeImage = null;
+  }
 }

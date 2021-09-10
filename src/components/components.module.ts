@@ -21,7 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormItemComponent } from './form-item/form-item.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { GaleryComponent } from './galery/galery.component';
-import { GaleryViewerComponent } from './galery/galery-viewer/galery-viewer.component';
+import { GaleryViewerComponent } from './galery-viewer/galery-viewer.component';
 
 
 
@@ -33,6 +33,7 @@ import { GaleryViewerComponent } from './galery/galery-viewer/galery-viewer.comp
     DropDownComponent,
     FormItemComponent,
     GaleryComponent,
+    GaleryViewerComponent,
     GridComponent,
     GridRowComponent,
     InProgressComponent,
@@ -40,7 +41,6 @@ import { GaleryViewerComponent } from './galery/galery-viewer/galery-viewer.comp
     ModalComponent,
     SearchInputComponent,
     ToggleComponent,
-    GaleryViewerComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +67,7 @@ import { GaleryViewerComponent } from './galery/galery-viewer/galery-viewer.comp
     DropDownComponent,
     FormItemComponent,
     GaleryComponent,
+    GaleryViewerComponent,
     GridComponent,
     GridRowComponent,
     InProgressComponent,

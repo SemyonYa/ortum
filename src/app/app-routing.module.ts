@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AboutGaleryComponent } from './pages/about-galery/about-galery.component';
 import { AboutInfoComponent } from './pages/about-info/about-info.component';
 import { AboutLicenseComponent } from './pages/about-license/about-license.component';
@@ -39,7 +39,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      useHash: true,
+      scrollPositionRestoration: 'enabled',
+    } as ExtraOptions
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

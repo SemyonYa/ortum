@@ -8,7 +8,7 @@
     background-position-x: right;
     background-position-y: 30%;
     background-attachment: fixed;
-    transition: .01s ease-in-out;
+    transition: .2s ease-in-out;
 
     i-header {
         display: block;
@@ -34,21 +34,17 @@
             background-color: white;
             box-shadow: 8px 0 24px 0 rgba(0, 0, 0, 0.16);
         }
+
+        @media (max-width: 767px) {
+            i-menu {
+                width: 75%;
+            }
+        }
     }
 
     main {
         margin-top: 80px;
         min-height: calc(100vh - 200px);
         padding: 24px;
-    }
-
-    i-call-me {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        margin: 16px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
     }
 }

@@ -4,6 +4,13 @@
     --carousel-dot-size: 8px;
 }
 
+@media (max-width: 767px) {
+    * {
+        --carousel-item-width: 75%;
+        --carousel-item-gap: 4vw;
+    }
+}
+
 .wrap {
     position: relative;
     width: 100%;
@@ -24,6 +31,12 @@
             object-fit: cover;
             box-shadow: 0 0 12px 0 rgba(0, 0, 0, .06);
             border-radius: 12px;
+        }
+
+        @media (max-width: 767px) {
+            img {
+                border-radius: 1vw;
+            }
         }
 
         &.prev2 {
@@ -67,9 +80,8 @@
         align-items: center;
         cursor: pointer;
 
-
         img {
-            width: 60px;
+            width: 100%;
         }
 
         &.right {
@@ -82,6 +94,10 @@
             img {
                 transform: rotate(180deg);
             }
+        }
+
+        @media (max-width: 767px) {
+            width: 7vw;
         }
     }
 

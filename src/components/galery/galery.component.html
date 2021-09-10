@@ -1,7 +1,10 @@
 <div class="wrap">
     <div class="thumbs">
-        <div *ngFor="let image of images" (click)="showViewer(image)" class="thumbs-item"
-            style="background-image: url(/assets/fake/{{image.name}});"></div>
+        <img *ngFor="let image of images" [src]="'/assets/fake/' + image.name" [alt]="image.name"
+            [ngClass]="{'thumbs-item': true}" (click)="showViewer(image)">
+
+        <!-- <div *ngFor="let image of images" (click)="showViewer(image)" class="thumbs-item"
+            style="background-image: url(/assets/fake/{{image.name}});"></div> -->
     </div>
 </div>
 

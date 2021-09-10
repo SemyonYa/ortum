@@ -7,7 +7,7 @@ export const callMeAnimation =
                 transform: 'translateX(50vw)',
                 opacity: 0
             }),
-            animate('.3s ease-in-out',
+            animate('.3s ease-out',
                 style({
                     transform: '*',
                     opacity: '*'
@@ -18,7 +18,7 @@ export const callMeAnimation =
                 transform: '*',
                 opacity: '*'
             }),
-            animate('.3s ease-in-out',
+            animate('.3s ease-out',
                 style({
                     transform: 'translateX(50vw)',
                     opacity: 0

@@ -6,7 +6,7 @@ import { MenuItem } from 'src/components/menu-item/menu-item.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html', 
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [menuAnimation, menuBackAnimation]
 })
@@ -30,7 +30,7 @@ export class AppComponent implements AfterViewInit {
       .subscribe(
         e => {
           if (e instanceof NavigationEnd) {
-            this.toggleMenuItem(e.url);
+            this.selectMenuItem(e.url);
             this.hideMenu();
           }
         }
@@ -39,21 +39,16 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // SCROLL SUBSCRIPTION
+    // Move vertebra
     window.addEventListener('scroll', () => {
       if (!this.scrollTimeoutOn) {
         this.scrollTimeoutOn = true;
         setTimeout(() => {
-          console.log(window.scrollY);
-          console.log(this.backgroundElem);
-          this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-y', `calc(30% - ${window.scrollY / 10}px)`)
+          this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-y', `calc(30% + ${window.scrollY / 3}px)`)
           this.scrollTimeoutOn = false;
-        }, 30);
+        }, 100);
       }
     });
-  }
-
-  private moveVertebra() {
-
   }
 
   private menu: MenuItem[] = [
@@ -112,7 +107,7 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  toggleMenuItem(menuItemRoute: string) {
+  selectMenuItem(menuItemRoute: string) {
     this.menu.forEach(mi => {
       mi.expanded = mi.route == menuItemRoute;
       if (mi.children && mi.children.length > 0) {
@@ -121,6 +116,21 @@ export class AppComponent implements AfterViewInit {
           expanded = expanded || (mic.route == menuItemRoute);
         });
         mi.expanded = expanded;
+      }
+    });
+  }
+
+  toggleMenuItem(menuItemRoute: string) {
+    this.menu.forEach(mi => {
+      if (mi.route == menuItemRoute) {
+        mi.expanded = !mi.expanded;
+      }
+      if (mi.children && mi.children.length > 0) {
+        mi.children.forEach(mic => {
+          if (mic.route == menuItemRoute) {
+            mic.expanded = !mic.expanded;
+          }
+        });
       }
     });
   }

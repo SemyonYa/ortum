@@ -1,9 +1,13 @@
 <div class="wrap col" @titleAnimation>
-    <a href="/assets/fake/category1.jpg" download="Ortum. Прайс-лист" class="download">
+    <a href="/assets/fake/category1.jpg" download="Ortum. Лицензия" class="download">
         <img src="/assets/icons/download-outline.svg" alt="DOWMLOAD">
         <span>Лицензия на осуществление медицинской деятельности</span>
     </a>
-    <div class="license center">
+
+    <div (click)="showViewer(null)" class="license center">
         license
     </div>
+
+    <i-galery-viewer *ngIf="activeImage" [image]="activeImage" [thumbs]="[licenseImage]"
+        (onSelectImage)="showViewer($event)" (onClose)="hideViewer()"></i-galery-viewer>
 </div>

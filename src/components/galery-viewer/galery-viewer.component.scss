@@ -24,17 +24,26 @@
     }
 
     img {
-        max-width: 960px;
-        max-height: calc(100vh - 160px);
+        // max-width: 960px;
+        max-width: 90vw;
+        max-height: calc(100vh - 80px - 9vw - 20px);
         border-radius: 12px;
         box-shadow: 0 0 24px 1px rgba(0, 0, 0, 0.06);
     }
 
     .thumbs {
-        height: 80px;
+        align-items: center;
+        height: calc(9vw + 28px);
         padding: 10px;
         align-self: stretch;
         overflow-x: auto;
         overflow-y: visible;
+        gap: .5vw;
+
+        &-item {
+            width: 8vw;
+            height: 8vw;
+            border-radius: 6px;
+        }
     }
 }

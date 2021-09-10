@@ -12,7 +12,7 @@ export class ServicesPriceComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.services = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    this.services = new Array(25).fill(0).map((_, index) => index + 1);
   }
 
 }
