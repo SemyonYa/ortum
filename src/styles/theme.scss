@@ -279,7 +279,7 @@ select {
 .modal-body {
   border-radius: 16px;
   padding: 24px;
-  background-color: white;
+  background-color: var(--color-bg);
   width: 100%;
   max-width: 500px;
   min-height: 200px;
@@ -333,4 +333,9 @@ label {
   .title {
     font-size: 18px;
   }
+}
+
+
+.ionicon {
+  fill: red;
 }

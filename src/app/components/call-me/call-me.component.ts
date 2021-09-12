@@ -10,6 +10,7 @@ import { callMeAnimation } from 'src/animations/call-me.animation';
   animations: [callMeAnimation],
 })
 export class CallMeComponent implements OnInit {
+  // TODO: @Input() messageStore: { sendMessage(telegramChatId: string, telegramToken: string): any }
   @Input() minified: boolean = true;
   @Input() telegramChatId: string;
   @Input() telegramToken: string;
@@ -19,9 +20,7 @@ export class CallMeComponent implements OnInit {
   form: FormGroup;
   expanded: boolean = false;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.generateForm();

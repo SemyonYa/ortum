@@ -7,11 +7,8 @@ export class Ctor {
     authorId: number;
     thumbId: number;
     tag: string;
-    items: CtorItem[];
 
-    constructor() {
-        this.items = [new CtorItem()];
-    }
+    items: CtorItem[];
 }
 
 export class CtorItem {
@@ -20,14 +17,6 @@ export class CtorItem {
     type: string;
     value: string;
     ctorId: number;
-
-    constructor(ctorId: number = null) {
-        this.type = CtorItemType.Text;
-
-        if (ctorId) {
-            this.ctorId = ctorId;
-        }
-    }
 }
 
 export const CtorItemType: { [key: string]: string } = {
@@ -37,4 +26,5 @@ export const CtorItemType: { [key: string]: string } = {
     H2: 'H2',
     List: 'List',
     Comment: 'Comment'
-  }
+    // TODO: Add carousel
+}

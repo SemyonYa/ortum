@@ -14,11 +14,17 @@
     }
 
     .text {
-        flex: 0 0 calc(100% - 160px);
+        // flex: 0 0 calc(100% - 160px);
+        flex: 1 1 0;
     }
+
+    // .select-region {
+    //     width: 100px;
+    // }
 
     .menu-button {
         width: 60px;
+        margin: 0 24px;
     }
 
     i-menu-button {

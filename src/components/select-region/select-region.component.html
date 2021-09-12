@@ -1,0 +1,20 @@
+<div (click)="showSelect()" class="wrap">
+    <span>{{selectedRegion}}</span>
+    <img src="/assets/icons/caret-down-outline.svg" alt="SELECT">
+</div>
+
+<div *ngIf="selectShown" id="select-region-back" class="select-back" (click)="backClick($event)">
+    <div class="modal-body">
+        <h5>Выберите регион</h5>
+        <div class="regions">
+            <div (click)="selectRegion('Москва')" class="regions-item">
+                <img src="/assets/fake/category1.jpg" alt="MOSCOW">
+                <p>Москва</p>
+            </div>
+            <div (click)="selectRegion('Норильск')" class="regions-item">
+                <img src="/assets/fake/category2.jpg" alt="NORILSK">
+                <p>Норильск</p>
+            </div>
+        </div>
+    </div>
+</div>

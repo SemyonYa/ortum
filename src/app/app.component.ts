@@ -38,17 +38,17 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // SCROLL SUBSCRIPTION
-    // Move vertebra
-    window.addEventListener('scroll', () => {
-      if (!this.scrollTimeoutOn) {
-        this.scrollTimeoutOn = true;
-        setTimeout(() => {
-          this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-y', `calc(30% + ${window.scrollY / 3}px)`)
-          this.scrollTimeoutOn = false;
-        }, 100);
-      }
-    });
+    // // SCROLL SUBSCRIPTION
+    // // Move vertebra
+    // window.addEventListener('scroll', () => {
+    //   if (!this.scrollTimeoutOn) {
+    //     this.scrollTimeoutOn = true;
+    //     setTimeout(() => {
+    //       this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-y', `calc(30% + ${window.scrollY / 3}px)`)
+    //       this.scrollTimeoutOn = false;
+    //     }, 100);
+    //   }
+    // });
   }
 
   private menu: MenuItem[] = [
