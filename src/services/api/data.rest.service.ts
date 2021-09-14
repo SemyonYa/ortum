@@ -8,12 +8,14 @@ import { Image } from 'src/models/Image';
 import { Service } from 'src/models/Service';
 import { Program } from 'src/models/Program';
 import { Ctor } from 'src/models/Ctor';
+import { Filial } from 'src/models/Filial';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
-  private route: string = '/data';
+  private route: string = '/public-data';
   private get url(): string { return `${environment.baseUrl}${this.route}`; }
 
   constructor(private http: HttpClient) { }
@@ -24,34 +26,70 @@ export class DataApiService {
 
   /* PRIMARY DATA ------------------ */
 
+  /**
+   * ID = 1 - Moscow
+   * ID = 2 - Norilsk
+   */
   getInfo() {
-    this.http.get<{ aboutPage: Ctor, licensePath: string, licenseThumbPath: string, pricePath: string, regions: {}[], contacts: {}[] }>(`${this.url}/`)
+    this.http.get<{ licensePath: string, licenseThumbPath: string, pricePath: string, filials: Filial[] }>(`${this.url}/info}`)
   }
 
   /* LISTS ------------------------- */
 
+  getAbout() {
+    return this.http.get<Ctor>(`${this.url}/about`)
+      .pipe(
+        map(item => this.responseToCamelCase(item))
+      )
+  }
+
   getPersonal() {
-    this.http.get<Person[]>(`${this.url}/`)
+    return this.http.get<Person[]>(`${this.url}/personal`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
   }
 
   getPositions() {
-    this.http.get<Ctor[]>(`${this.url}/`)
+    return this.http.get<Ctor[]>(`${this.url}/positions`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
   }
 
   getGalery() {
-    this.http.get<Image[]>(`${this.url}/`)
+    return this.http.get<Image[]>(`${this.url}/galery`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
   }
 
   getServices() {
-    this.http.get<Service[]>(`${this.url}/`)
+    return this.http.get<Service[]>(`${this.url}/services`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
   }
 
   getPrograms() {
-    this.http.get<Program[]>(`${this.url}/`)
+    return this.http.get<Program[]>(`${this.url}/programs`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
   }
 
   getArticles() {
-    this.http.get<Ctor[]>(`${this.url}/`)
+    return this.http.get<Ctor[]>(`${this.url}/articles`)
+      .pipe(
+        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+      )
+  }
+
+  getArticle(id: number) {
+    return this.http.get<Ctor>(`${this.url}/article/${id}`)
+      .pipe(
+        map(item => this.responseToCamelCase(item))
+      )
   }
 
   /* 

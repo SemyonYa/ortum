@@ -3,6 +3,7 @@ import { pageAnimation } from 'src/animations/page.animation';
 import { titleAnimation } from 'src/animations/title.animation';
 import { Ctor } from 'src/models/Ctor';
 import { CtorRestService } from 'src/services/api/ctor.rest.service';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-articles',
@@ -13,17 +14,15 @@ import { CtorRestService } from 'src/services/api/ctor.rest.service';
 export class ArticlesComponent implements OnInit {
   ctors: Ctor[];
   constructor(
-    private ctorRest: CtorRestService
+    private dataRest: DataApiService
   ) { }
 
   ngOnInit(): void {
-    this.ctorRest.getAll();
-    this.ctorRest.list$
+    this.dataRest.getArticles()
       .subscribe(
         items => {
           this.ctors = items;
-        },
-        this.ctorRest.handleError
+        }
       );
   }
 

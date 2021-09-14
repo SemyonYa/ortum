@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Ctor } from 'src/models/Ctor';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-about-info',
@@ -8,10 +10,19 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class AboutInfoComponent implements OnInit {
-
-  constructor() { }
+  ctor: Ctor;
+  constructor(
+    private dataRest: DataApiService
+  ) { }
 
   ngOnInit(): void {
+    this.dataRest.getAbout()
+      .subscribe(
+        item => {
+          this.ctor = item;
+        }
+      );
+
   }
 
 }

@@ -4,6 +4,7 @@ import { subscribeOn } from 'rxjs/operators';
 import { pageAnimation } from 'src/animations/page.animation';
 import { Ctor } from 'src/models/Ctor';
 import { CtorRestService } from 'src/services/api/ctor.rest.service';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-article',
@@ -15,21 +16,18 @@ export class ArticleComponent implements OnInit {
   id: number;
   ctor: Ctor;
   constructor(
-    private ctorRest: CtorRestService,
+    private dataRest: DataApiService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.ctorRest.getAll();
-    this.ctorRest.list$
+    this.dataRest.getArticle(this.id)
       .subscribe(
-        items => {
-          if (items) {
-            this.ctor = items.find(i => i.id == this.id);
-          }
-        },
-        this.ctorRest.handleError
+        item => {
+          console.log("🚀 ~ file: article.component.ts ~ line 27 ~ ArticleComponent ~ ngOnInit ~ item", item)
+          this.ctor = item;
+        }
       );
   }
 

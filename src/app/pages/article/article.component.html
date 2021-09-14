@@ -1,14 +1,7 @@
-<div *ngIf="ctor; else inProgress" class="wrap col" @pageAnimation>
-    <h1>{{ctor.title}}</h1>
-    <h4>{{ctor.subtitle}}</h4>
-    <hr style="width:max-content">
-    <p *ngFor="let item of ctor.items">
-        {{item.value}}
-    </p>
+<div *ngIf="ctor" class="wrap" @pageAnimation>
+    <i-ctor-widget [ctor]="ctor"></i-ctor-widget>
 </div>
 
-<ng-template #inProgress>
-    <div class="center">
-        <i-in-progress size="36px" margin="48px"></i-in-progress>
-    </div>
-</ng-template>
+<div *ngIf="ctor === undefined" class="center">
+    <i-in-progress size="36px" margin="48px"></i-in-progress>
+</div>

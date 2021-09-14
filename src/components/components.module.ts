@@ -23,6 +23,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { GaleryComponent } from './galery/galery.component';
 import { GaleryViewerComponent } from './galery-viewer/galery-viewer.component';
 import { SelectRegionComponent } from './select-region/select-region.component';
+import { CtorWidgetComponent } from './ctor-widget/ctor-widget.component';
 
 
 
@@ -31,6 +32,7 @@ import { SelectRegionComponent } from './select-region/select-region.component';
     BreadcrumbsComponent,
     CarouselComponent,
     CollapsibleComponent,
+    CtorWidgetComponent,
     DropDownComponent,
     FormItemComponent,
     GaleryComponent,
@@ -66,6 +68,7 @@ import { SelectRegionComponent } from './select-region/select-region.component';
     BreadcrumbsComponent,
     CarouselComponent,
     CollapsibleComponent,
+    CtorWidgetComponent,
     DropDownComponent,
     FormItemComponent,
     GaleryComponent,
