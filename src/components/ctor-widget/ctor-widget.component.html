@@ -1,5 +1,14 @@
 <div [ngClass]="{'wrap': true, cssClass: !!cssClass}">
-    
+    <ng-container *ngFor="let item of ctor.items">
+        <h2 *ngIf="ctor.type == 'H1">{{ctor.value}}</h2>
+        <h3 *ngIf="ctor.type == 'H2">{{ctor.value}}</h3>
+        <p *ngIf="ctor.type == 'Text'">{{ctor.value}}</p>
+        <p class="comment" *ngIf="ctor.type == 'Comment'">{{ctor.value}}</p>
+        <ul *ngIf="ctor.type == 'List">
+            <li *ngFor="let li of ctor.value.split('\n')"></li>
+        </ul>
+        <img *ngIf="ctor.type == 'Image" src="/assets/fake/category{{ctor.value % 6 + 1}}.jpg" alt="CTOR IMAGE">
+    </ng-container>
 </div>
 
 <pre>
