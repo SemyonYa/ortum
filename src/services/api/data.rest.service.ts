@@ -7,9 +7,10 @@ import { Person } from 'src/models/Person';
 import { Image } from 'src/models/Image';
 import { Service } from 'src/models/Service';
 import { Program } from 'src/models/Program';
-import { Ctor } from 'src/models/Ctor';
+import { Ctor, CtorItem } from 'src/models/Ctor';
 import { Filial } from 'src/models/Filial';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class DataApiService {
   getAbout() {
     return this.http.get<Ctor>(`${this.url}/about`)
       .pipe(
-        map(item => this.responseToCamelCase(item))
+        map(item => this.responseToCamelCase(item) as Ctor)
       )
   }
 
@@ -78,23 +79,49 @@ export class DataApiService {
       )
   }
 
-  getArticles() {
+  getArticles(): Observable<Ctor[]> {
     return this.http.get<Ctor[]>(`${this.url}/articles`)
       .pipe(
-        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+        map(
+          (items: any[]) => {
+            return items.map(
+              item => {
+                let ctor = this.responseToCamelCase(item) as Ctor;
+                ctor.thumb = new Image(item.thumb.id, item.thumb.name)
+                return ctor;
+              }
+            );
+          }
+        )
       )
   }
 
-  getArticle(id: number) {
+  getArticle(id: number): Observable<Ctor> {
     return this.http.get<Ctor>(`${this.url}/article/${id}`)
       .pipe(
-        map(item => this.responseToCamelCase(item))
+        map(item => {
+          let ctor = this.responseToCamelCase(item) as Ctor;
+          ctor.thumb = new Image(item.thumb.id, item.thumb.name)
+          return ctor;
+        })
       )
   }
+
 
   /* 
     COMMON METHODS
   */
+
+  ctorConstructor = (item: any) => {
+    let ctor = this.responseToCamelCase(item) as Ctor;
+    ctor.thumb = new Image(item.thumb.id, item.thumb.name);
+    const ctorItems = [];
+    ctor.items = item.items.map(i => {
+      let ctorItem = this.responseToCamelCase(i) as CtorItem;
+      ctorItem.image = new Image(i.image.id, i.image.name);
+    });
+    return ctor;
+  }
 
   handleError = (err: HttpErrorResponse) => {
     let errorText: string;

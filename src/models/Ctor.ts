@@ -1,3 +1,5 @@
+import { Image } from "./Image";
+
 export class Ctor {
     id: number;
     title: string;
@@ -8,6 +10,7 @@ export class Ctor {
     thumbId: number;
     tag: string;
 
+    thumb: Image;
     items: CtorItem[];
 }
 
@@ -17,6 +20,8 @@ export class CtorItem {
     type: string;
     value: string;
     ctorId: number;
+
+    image?: Image;
 }
 
 export const CtorItemType: { [key: string]: string } = {

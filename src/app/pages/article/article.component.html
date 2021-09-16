@@ -1,5 +1,10 @@
 <div *ngIf="ctor" class="wrap" @pageAnimation>
-    <i-ctor-widget [ctor]="ctor"></i-ctor-widget>
+    <div class="container">
+        <h1>{{ctor.title}}</h1>
+        <p><strong>{{ctor.subtitle}}</strong></p>
+        <img src="{{ctor.thumb.medium}}" alt="THUMB">
+        <i-ctor-item-widget *ngFor="let item of ctor.ctorItems" [ctorItem]="item"></i-ctor-item-widget>
+    </div>
 </div>
 
 <div *ngIf="ctor === undefined" class="center">

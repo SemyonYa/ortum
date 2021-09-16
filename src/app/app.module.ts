@@ -21,7 +21,7 @@ import { ServicesProgramsComponent } from './pages/services-programs/services-pr
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutPositionsComponent } from './pages/about-positions/about-positions.component';
 import { ComponentsModule } from 'src/components/components.module';
-import { ArticlesBriefComponent } from './pages/articles/articles-brief/articles-brief.component';
+import { ArticlesBriefComponent } from './components/articles-brief/articles-brief.component';
 import { ArticleComponent } from './pages/article/article.component';
 
 @NgModule({

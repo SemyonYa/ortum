@@ -1,0 +1,10 @@
+<div *ngIf="ctorItem" [ngClass]="{'wrap': true, cssClass: !!cssClass}">
+    <h2 *ngIf="ctorItem.type == 'H1'">{{ctorItem.value}}</h2>
+    <h3 *ngIf="ctorItem.type == 'H2'">{{ctorItem.value}}</h3>
+    <p *ngIf="ctorItem.type == 'Text'">{{ctorItem.value}}</p>
+    <p class="comment" *ngIf="ctorItem.type == 'Comment'">{{ctorItem.value}}</p>
+    <ul *ngIf="ctorItem.type == 'List'">
+        <li *ngFor="let li of ctorItem.value.split('\n')">{{li}}</li>
+    </ul>
+    <img *ngIf="ctorItem.type == 'Image'" src="/assets/fake/category{{ctorItem.value % 6 + 1}}.jpg" alt="CTOR IMAGE">
+</div> 

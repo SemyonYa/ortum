@@ -17,11 +17,11 @@ export class ArticlesComponent implements OnInit {
     private dataRest: DataApiService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.dataRest.getArticles()
       .subscribe(
         items => {
-          this.ctors = items;
+          this.ctors = items; 
         }
       );
   }
