@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Ctor } from 'src/models/Ctor';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-about-personal',
@@ -8,11 +10,18 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class AboutPersonalComponent implements OnInit {
-  persons: number[];
-  constructor() { }
+  ctors: Ctor[];
+  constructor(
+    private dataRest: DataApiService
+  ) { }
 
   ngOnInit(): void {
-    this.persons = [1, 2, 3, 4, 5];
+    this.dataRest.getPersonal()
+      .subscribe(
+        items => {
+          this.ctors = items;
+        }
+      );
   }
 
 }

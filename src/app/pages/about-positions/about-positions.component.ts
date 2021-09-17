@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Ctor } from 'src/models/Ctor';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-about-positions',
@@ -8,16 +10,23 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class AboutPositionsComponent implements OnInit {
-  positions: number[];
-  activePosition: number;
-  constructor() { }
+  ctors: Ctor[];
+  activePositionId: number;
+  constructor(
+    private dataRest: DataApiService
+  ) { }
 
   ngOnInit(): void {
-    this.positions = [1, 2, 3, 4];
+    this.dataRest.getPositions()
+      .subscribe(
+        items => {
+          this.ctors = items;
+        }
+      );
   }
 
   selectPosition(id: number) {
-    this.activePosition = this.activePosition == id ? null : id;
+    this.activePositionId = this.activePositionId == id ? null : id;
   }
 
 }

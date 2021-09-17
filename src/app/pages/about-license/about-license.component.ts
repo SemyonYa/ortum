@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { environment } from 'src/environments/environment';
 import { Image } from 'src/models/Image';
+import { LocaleImage } from 'src/models/LocaleImage';
 
 @Component({
   selector: 'i-about-license',
@@ -9,18 +11,23 @@ import { Image } from 'src/models/Image';
   animations: [titleAnimation]
 })
 export class AboutLicenseComponent implements OnInit {
-  licenseImage: Image;
+  licenseImages: Image[] = [];
   activeImage: Image;
+  licensePDFs: string[] = [];
   constructor() { }
 
   ngOnInit(): void {
-    this.licenseImage = new Image(0, 'category4.jpg');
+    environment.licenses.forEach(l => {
+      this.licenseImages.push(new LocaleImage(1, l.path))
+      this.licensePDFs.push(l.path);
+    }
+    );
   }
 
   showViewer(image: Image) {
     console.log('show');
-    
-    this.activeImage = this.licenseImage;
+
+    this.activeImage = image;
   }
 
   hideViewer() {

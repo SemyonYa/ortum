@@ -17,4 +17,8 @@ export class Image {
     get large() {
         return `${environment.baseUrl}/${environment.imagesDir}/${this.name}`;
     }
+    
+    get localeImage() {
+        return `${environment.baseUrl}/${this.name}`;
+    }
 }

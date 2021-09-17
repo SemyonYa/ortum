@@ -2,8 +2,10 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   margin: 0;
-  font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 ::-webkit-scrollbar {

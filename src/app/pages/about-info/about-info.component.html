@@ -1,5 +1,5 @@
 <div *ngIf="ctor" class="wrap col" @titleAnimation>
     <h2>{{ctor.title}}</h2>
-    {{ctor | json}}
+    <i-ctor-item-widget *ngFor="let item of ctor.ctorItems" [ctorItem]="item"></i-ctor-item-widget>
     <i-carousel></i-carousel>
 </div>

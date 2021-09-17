@@ -36,7 +36,8 @@ export class DataApiService {
   }
 
   /* LISTS ------------------------- */
-
+  // TODO: ctorConstructor for every method map
+  
   getAbout() {
     return this.http.get<Ctor>(`${this.url}/about`)
       .pipe(
@@ -44,17 +45,17 @@ export class DataApiService {
       )
   }
 
-  getPersonal() {
+  getPersonal(): Observable<Ctor[]> {
     return this.http.get<Person[]>(`${this.url}/personal`)
       .pipe(
-        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+        map((items: any[]) => items.map(this.ctorConstructor))
       )
   }
 
-  getPositions() {
+  getPositions(): Observable<Ctor[]> {
     return this.http.get<Ctor[]>(`${this.url}/positions`)
       .pipe(
-        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+        map((items: any[]) => items.map(this.ctorConstructor))
       )
   }
 
@@ -114,12 +115,19 @@ export class DataApiService {
 
   ctorConstructor = (item: any) => {
     let ctor = this.responseToCamelCase(item) as Ctor;
-    ctor.thumb = new Image(item.thumb.id, item.thumb.name);
-    const ctorItems = [];
-    ctor.items = item.items.map(i => {
-      let ctorItem = this.responseToCamelCase(i) as CtorItem;
-      ctorItem.image = new Image(i.image.id, i.image.name);
-    });
+
+    if (item.thumb?.id) {
+      ctor.thumb = new Image(item.thumb.id, item.thumb.name);
+    }
+
+    if (ctor.items) {
+      const ctorItems = [];
+      ctor.items = item.items.map(i => {
+        let ctorItem = this.responseToCamelCase(i) as CtorItem;
+        ctorItem.image = new Image(i.image.id, i.image.name);
+      });
+    }
+
     return ctor;
   }
 
