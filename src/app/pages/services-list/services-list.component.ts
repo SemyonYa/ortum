@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Ctor } from 'src/models/Ctor';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-services-list',
@@ -8,11 +10,18 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class ServicesListComponent implements OnInit {
-  services: number[];
-  constructor() { }
+  ctors: Ctor[]; 
+  constructor(
+    private dataRest: DataApiService
+  ) { }
 
   ngOnInit(): void {
-    this.services = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+    this.dataRest.getServices()
+      .subscribe(
+        items => {
+          this.ctors = items;
+        }
+      );
   }
 
 }

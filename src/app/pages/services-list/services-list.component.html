@@ -1,6 +1,10 @@
 <div class="wrap col" @titleAnimation>
-    <div *ngFor="let service of services" class="service">
-        <img src="/assets/fake/category{{service % 7 + 1}}.jpg" alt="SERVICE">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <div *ngFor="let ctor of ctors" class="service">
+        <img *ngIf="ctor.thumb?.medium" [src]="ctor.thumb?.medium" alt="PHOTO" class="SERVICE">
+        <img *ngIf="!ctor.thumb?.medium" [src]="'/assets/fake/category4.jpg'" alt="PHOTO" class="SERVICE">
+        <div class="text">
+            <p><strong>{{ctor.title}}</strong></p>
+            <p *ngIf="ctor.subtitle">{{ctor.subtitle}}</p>
+        </div>
     </div>
 </div>

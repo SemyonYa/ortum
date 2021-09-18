@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { titleAnimation } from 'src/animations/title.animation';
+import { Ctor } from 'src/models/Ctor';
+import { DataApiService } from 'src/services/api/data.rest.service';
 
 @Component({
   selector: 'i-services-price',
@@ -8,11 +10,19 @@ import { titleAnimation } from 'src/animations/title.animation';
   animations: [titleAnimation]
 })
 export class ServicesPriceComponent implements OnInit {
-  services: number[];
-  constructor() { }
+  ctors: Ctor[]; 
+  constructor(
+    private dataRest: DataApiService
+  ) { }
 
   ngOnInit(): void {
-    this.services = new Array(25).fill(0).map((_, index) => index + 1);
+    this.dataRest.getServices()
+      .subscribe(
+        items => {
+          this.ctors = items;
+        }
+      );
   }
+
 
 }

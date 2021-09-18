@@ -8,17 +8,13 @@
             <td>Цена</td>
         </thead>
         <tbody>
-            <tr *ngFor="let service of services; let index = index">
+            <tr *ngFor="let ctor of ctors; let index = index">
                 <td>{{index + 1}}</td>
                 <td>
-                    <p>Услуга № {{service}}</p>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio ut repellendus vitae dicta
-                        tempora vero quo ullam voluptatem dolorum id illo, necessitatibus aperiam. Temporibus labore
-                        adipisci atque, maxime magnam nesciunt!
-                    </p>
+                    <p> {{ctor.title}} </p>
+                    <p> {{ctor.subtitle}} </p>
                 </td>
-                <td>{{1000 + service * 300}}&nbsp;&#8381;</td>
+                <td>{{ctor.price}}&nbsp;&#8381;</td>
             </tr>
         </tbody>
     </table>

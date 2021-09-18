@@ -17,13 +17,13 @@ export class AppComponent implements AfterViewInit {
   asideVisible: boolean = false;
   callMeMinified: boolean = true;
 
-  scrollTimeoutOn: boolean;
+  // scrollTimeoutOn: boolean;
 
   @ViewChild('background') backgroundElem: ElementRef<HTMLDivElement>;
 
   constructor(
     private router: Router,
-    private renderer: Renderer2
+    // private renderer: Renderer2
   ) {
     // ROUTER SUBSCRIPTION
     this.router.events

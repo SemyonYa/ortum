@@ -37,7 +37,7 @@ export class DataApiService {
 
   /* LISTS ------------------------- */
   // TODO: ctorConstructor for every method map
-  
+
   getAbout() {
     return this.http.get<Ctor>(`${this.url}/about`)
       .pipe(
@@ -66,10 +66,10 @@ export class DataApiService {
       )
   }
 
-  getServices() {
+  getServices(): Observable<Ctor[]> {
     return this.http.get<Service[]>(`${this.url}/services`)
       .pipe(
-        map((items: any[]) => items.map(item => this.responseToCamelCase(item)))
+        map((items: any[]) => items.map(this.ctorConstructor))
       )
   }
 

@@ -22,5 +22,9 @@
             object-fit: cover;
             overflow: hidden;
         }
+
+        .text {
+            flex: 0 1 calc(100% - 100px);
+        }
     }
 }

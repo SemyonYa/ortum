@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegionService, RegionType } from 'src/services/region.service';
 
 @Component({
   selector: 'i-select-region',
@@ -6,13 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-region.component.scss']
 })
 export class SelectRegionComponent implements OnInit {
-  selectedRegion: 'Норильск' | 'Москва';
-  selectShown: boolean = false;
+  selectedRegion: RegionType;
+  private selectShown: boolean = false;
 
-  constructor() { }
+  constructor(
+    private regionService: RegionService
+  ) { }
 
   ngOnInit(): void {
-    this.selectedRegion = 'Москва';
+    this.regionService
+      .subscribe(
+        r => {
+          this.selectedRegion = r;
+        }
+      );
+  }
+
+  get shown() {
+    return !this.selectedRegion || this.selectShown;
   }
 
   showSelect() {
@@ -29,8 +41,9 @@ export class SelectRegionComponent implements OnInit {
     }
   }
 
-  selectRegion(region: 'Норильск' | 'Москва') {
-    this.selectedRegion = region;
+  selectRegion(region: RegionType) {
+    this.regionService.toStorage(region);
+    // this.selectedRegion = region;
     this.hideSelect();
   }
 }
