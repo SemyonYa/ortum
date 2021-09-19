@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { menuBackAnimation } from 'src/animations/menu-back.animation';
 import { menuAnimation } from 'src/animations/menu.animation';
 import { MenuItem } from 'src/components/menu-item/menu-item.component';
+import { RegionService } from 'src/services/region.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements AfterViewInit {
   title = 'ortum';
   menuVisible: boolean = false;
   asideVisible: boolean = false;
+  region: string;
   callMeMinified: boolean = true;
 
   // scrollTimeoutOn: boolean;
@@ -23,6 +25,7 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private router: Router,
+    private regionService: RegionService
     // private renderer: Renderer2
   ) {
     // ROUTER SUBSCRIPTION
@@ -35,6 +38,12 @@ export class AppComponent implements AfterViewInit {
           }
         }
       );
+
+    regionService.subscribe(
+      r => {
+        this.region = r;
+      }
+    );
   }
 
   ngAfterViewInit() {

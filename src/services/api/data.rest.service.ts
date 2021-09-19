@@ -11,6 +11,7 @@ import { Ctor, CtorItem } from 'src/models/Ctor';
 import { Filial } from 'src/models/Filial';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { RegionType } from '../region.service';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,7 @@ export class DataApiService {
       )
   }
 
+  // TODO
   getPersonal(): Observable<Ctor[]> {
     return this.http.get<Person[]>(`${this.url}/personal`)
       .pipe(
@@ -66,8 +68,8 @@ export class DataApiService {
       )
   }
 
-  getServices(): Observable<Ctor[]> {
-    return this.http.get<Service[]>(`${this.url}/services`)
+  getServices(region: RegionType): Observable<Ctor[]> {
+    return this.http.get<Service[]>(`${this.url}/services/${region}`)
       .pipe(
         map((items: any[]) => items.map(this.ctorConstructor))
       )

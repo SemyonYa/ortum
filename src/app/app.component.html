@@ -8,7 +8,7 @@
 
   <i-footer></i-footer>
 
-  <i-call-me telegramToken="1981078602:AAHx91xSEakqFEgfR2gElS_U4LDn4fOpcvc" telegramChatId="-1001526670789"
+  <i-call-me *ngIf="region" telegramToken="1981078602:AAHx91xSEakqFEgfR2gElS_U4LDn4fOpcvc" telegramChatId="-1001526670789"
     [minified]="callMeMinified" (onToggle)="toggleCallMe()"></i-call-me>
 
   <aside *ngIf="asideVisible" (click)="backClick($event)" @menuBackAnimation>
