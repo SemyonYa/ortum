@@ -1,9 +1,46 @@
 <div class="wrap">
     <div class="container">
-        <h4>Footer</h4>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis praesentium ad incidunt magni expedita
-        provident dicta ipsum quis unde at labore, odio molestiae laborum ex, neque aliquid atque itaque nam.
-        Atque libero vero veritatis autem asperiores inventore similique deleniti velit maiores fuga enim id eos, ab
-        eius nulla maxime temporibus impedit accusantium? Ratione cumque obcaecati corrupti eaque, vel quod qui!
+        <div class="col">
+            <h4>Клиника</h4>
+            <a [routerLink]="['/about']">
+                О клинике
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+            <a [routerLink]="['/about/license']">
+                Лицензия
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+        </div>
+        <div class="col">
+            <h4>Услуги</h4>
+            <a [routerLink]="['/services']">
+                Список услуг
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+            <a [routerLink]="['/services/programs']">
+                Программы
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+            <a [routerLink]="['/services/price']">
+                Прайс
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+        </div>
+        <div class="col">
+            <h4>Прочее</h4>
+            <a [routerLink]="['/contact']">
+                Контакты
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+            <a [routerLink]="['/articles']">
+                Статьи
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+            <a [routerLink]="['/about/galery']">
+                Фото
+                <img src="/assets/icons/chevron-forward.svg" alt=">>">
+            </a>
+        </div>
+
     </div>
 </div>

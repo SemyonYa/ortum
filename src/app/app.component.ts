@@ -25,8 +25,8 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private router: Router,
-    private regionService: RegionService
-    // private renderer: Renderer2
+    private regionService: RegionService,
+    private renderer: Renderer2
   ) {
     // ROUTER SUBSCRIPTION
     this.router.events
@@ -35,6 +35,13 @@ export class AppComponent implements AfterViewInit {
           if (e instanceof NavigationEnd) {
             this.selectMenuItem(e.url);
             this.hideMenu();
+
+            if (this.backgroundElem) {
+              const rnd1: number = Math.round((Math.random() * 10));
+              const rnd2: number = Math.round((Math.random() * 10));
+              this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-size', `${100 + rnd1}% auto`);
+              this.renderer.setStyle(this.backgroundElem.nativeElement, 'background-position-x', `${50 + rnd2 / 3}%`);
+            }
           }
         }
       );

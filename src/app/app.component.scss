@@ -1,50 +1,55 @@
 .wrap {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    background-image: url('/assets/icons/vertebra.svg');
-    background-repeat: no-repeat;
-    background-size: auto 200%;
-    background-position-x: right;
-    background-position-y: 30%;
-    background-attachment: fixed;
-    transition: .2s ease-in-out;
+  // background-image: url('/assets/icons/vertebra.svg');
+  // background-repeat: no-repeat;
+  // background-size: auto 200%;
+  // background-position-x: right;
+  // background-position-y: 30%;
+  background-image: url("/assets/images/vertebra48.png");
+  background-size: 100% auto;
+  background-position-x: 50%;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: 0.4s ease-in-out;
 
-    i-header {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        border-bottom: solid 1px var(--color-secondary);
+  i-header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    // border-bottom: solid 1px var(--color-secondary);
+  }
+
+  aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.36);
+
+    i-menu {
+      display: block;
+      width: 50vw;
+      height: 100%;
+      background-color: white;
+      box-shadow: 8px 0 24px 0 rgba(0, 0, 0, 0.16);
     }
 
-    aside {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.36);
-
-        i-menu {
-            display: block;
-            width: 50vw;
-            height: 100%;
-            background-color: white;
-            box-shadow: 8px 0 24px 0 rgba(0, 0, 0, 0.16);
-        }
-
-        @media (max-width: 767px) {
-            i-menu {
-                width: 75%;
-            }
-        }
+    @media (max-width: 767px) {
+      i-menu {
+        width: 75%;
+      }
     }
+  }
 
-    main {
-        margin-top: 80px;
-        min-height: calc(100vh - 200px);
-        padding: 24px;
-    }
+  main {
+    margin-top: 80px;
+    min-height: calc(100vh - 200px);
+    padding: 24px;
+  }
 }
