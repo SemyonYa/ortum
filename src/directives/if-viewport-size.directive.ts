@@ -48,7 +48,7 @@ export class IfViewportSizeDirective {
 }
 
 export interface IConfig {
-    medium: number;
-    large: number;
-  }
-  
+  medium: number;
+  large: number;
+}
+

@@ -17,7 +17,7 @@ export class ViewportSizeService {
         this.config = config;
     }
 
-    cacheCurrentWidth() {
+    cacheCurrentWidth() { 
         this.currentWidth$.next(window.innerWidth);
     }
 
